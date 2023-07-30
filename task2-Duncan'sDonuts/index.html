@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Duncan's Just-In-Time Donuts</title>
+
+    <script type="text/javascript">
+        function updateOrder() {
+            const TAXRATE = 0.0925;
+            const DONUTPRICE = 0.50;
+
+            var numCakeDonuts = parseDonuts (document.getElementById("cakeDonutsAmount").value);
+            var numGlazedDonuts = parseDonuts (document.getElementById("glazedDonutsAmount").value);
+
+            if (isNaN(numCakeDonuts))
+            numCakeDonuts = 0;
+            if (isNaN(numGlazedDonuts))
+            numGlazedDonuts = 0;
+
+            var subTotal = (numCakeDonuts + numGlazedDonuts) * DONUTPRICE;
+            var tax = subTotal * TAXRATE;
+            var total = tax + subTotal;
+
+            document.getElementById("subtotal").value = "$" + subTotal.toFixed(2);
+            document.getElementById("tax").value = "$" + tax.toFixed(2);
+            document.getElementById("total").value = "$" + total.toFixed(2);
+        }
+
+        function placeOrder(){
+            //Submit order to server
+            if(document.getElementById("name").value == "")
+            alert("You must provide your name before submitting an order.");
+            else if(document.getElementById("pickupMinutes").value == "" || isNan(document.getElementById("pickupMinutes").value))
+            alert("You must provide number of minutes untill pickup.");
+            else
+            form.submit();
+
+        }
+
+        function parseDonuts(donutString) {
+            numDonuts = parseInt(donutString);
+            if (donutString.indexOf("dozen") != -1)
+            numDonuts *= 12;
+            return numDonuts;
+        }
+
+    </script>
+
+</head>
+<body>
+    <div id="h1wrapper">
+        <h1 class="container" >Order Duncan's Just-in-time Donuts!</h1>
+    </div>
+    
+    <div class="container">
+        <form>
+            <p>All Donuts 50 cents each, cake or glazed</p>
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" name="name" placeholder="John Smith">
+      
+          <label for="cakeDonutsAmount">Cake Donuts Amount:</label>
+          <input type="text" id="cakeDonutsAmount" name="cakeDonutsAmount" placeholder="12" onchange="updateOrder();">
+      
+          <label for="glazedDonutsAmount">Glazed Donuts Amount:</label>
+          <input type="text" id="glazedDonutsAmount" name="glazedDonutsAmount" placeholder="6" onchange="updateOrder();">
+
+          <label for="pickupMinutes">Minutes till pickup:</label>
+          <input type="text" id="pickupMinutes" name="pickupMinutes" placeholder="30">
+
+          <label for="subtotal">Subtotal:</label>
+          <input type="text" id="subtotal" name="subtotal" placeholder="0" readonly>
+      
+          <label for="tax">Tax:</label>
+          <input type="text" id="tax" name="tax" placeholder="0" readonly>
+
+          <label for="total">Total:</label>
+          <input type="text" id="total" name="total" placeholder="0" readonly>
+
+          <input type="submit" value="Submit" onclick="placeOrder(this.form)">
+        </form>
+    </div>
+</body>
+</html>

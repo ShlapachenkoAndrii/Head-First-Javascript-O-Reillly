@@ -1,0 +1,56 @@
+body{
+  background-image: url(bg.jpg);
+}
+
+
+input[type=text], select, textarea {
+  width: 100%; 
+  padding: 8px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  margin-bottom: 10px; 
+  margin-top: 4px;
+  resize: vertical 
+}
+
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+
+#h1wrapper {
+  text-align: center;
+  margin-bottom: 10px;
+
+}
+
+
+#h1wrapper h1 {
+  width: 520px;
+  padding: 10px;
+}
+
+form p {
+  margin-top: 0;
+}
