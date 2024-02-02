@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tasks from chapter 6</title>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+    <p>
+        Task 1
+        Create an array of Blog objects in a variable named blog that
+        is initialized to the blog entries in the YouCube blog. Feel free to
+        just write the first few words of body text in each entry.
+    </p>
+    <pre>
+        <code>
+            function Blog (body, date) {
+                this.body = body;
+                this.date = date;
+            };
+            
+            var blog = [new Blog("Learning JS", "18/08/2023"),
+                        new Blog("Learning JS more", "19/08/2023")];
+        </code>
+    </pre>     
+    
+    <p>
+        Task 2
+        Create two objects for the first two YouCube blog entries. Then call the
+        getDaysBetween() function. passing the two Date objects, and displaying
+        the result in ап alert box. 
+    </p>
+    <pre>
+        <code>
+            function getDatsBetween(date1, date2) {
+                var daysBetween = (date2 - date1) / (1000 * 60 * 60 * 24); 
+                return Math.round(daysBetween);
+            }
+            var firstBlodDate = new Date(2023, 7, 18);
+            var secondBlogDate = new Date(2023, 7, 16);
+            
+            alert("There are " + getDatsBetween(firstBlogDate, secondBlogDate) + " days between these dates");
+        </code>
+    </pre>    
+    <button onclick='alertDates();'> Run Task 1</button>
+</body>
+</html>
